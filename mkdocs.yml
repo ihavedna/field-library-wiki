@@ -47,6 +47,8 @@ markdown_extensions:
 
 plugins:
   - search
+  # Tags listing is placed by the <!-- material/tags --> marker in tags-labels.md
+  - tags
 
 nav:
   - The Kallarai Library: index.md

@@ -1,3 +1,9 @@
+---
+tags:
+  - Primary Source
+  - Expedition
+  - The Vigil
+---
 # The Vigil Expedition: Notes and Observations
 
 <div class="embed">

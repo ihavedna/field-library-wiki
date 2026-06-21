@@ -1,3 +1,9 @@
+---
+tags:
+  - Primary Source
+  - Experiment
+  - Ademeni
+---
 # Ademeni's Experiment Notes
 
 <div class="embed">

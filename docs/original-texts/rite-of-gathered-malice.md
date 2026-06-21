@@ -1,3 +1,9 @@
+---
+tags:
+  - Primary Source
+  - Ritual
+  - Necromancy
+---
 # Ritual: Rite of Gathered Malice
 
 <div class="embed">

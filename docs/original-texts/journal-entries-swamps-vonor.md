@@ -1,3 +1,9 @@
+---
+tags:
+  - Primary Source
+  - Journal
+  - Vonor
+---
 # 495: Journal Entries from the Swamps beyond Vonor
 
 <div class="embed">

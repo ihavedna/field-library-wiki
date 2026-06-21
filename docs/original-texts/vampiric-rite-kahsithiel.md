@@ -1,3 +1,9 @@
+---
+tags:
+  - Primary Source
+  - Ritual
+  - Vampiric
+---
 # Vampiric Rite to Kahsithiel, upon the Aspect Nodes
 
 <div class="embed">

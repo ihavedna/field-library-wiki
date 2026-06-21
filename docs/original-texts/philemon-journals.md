@@ -1,3 +1,10 @@
+---
+tags:
+  - Primary Source
+  - Journal
+  - Necromancy
+  - Philemon
+---
 # Various Journals, Notes & Excerpts from Philemon the Necromancer
 
 <div class="embed">
