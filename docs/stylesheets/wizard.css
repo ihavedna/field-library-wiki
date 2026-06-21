@@ -141,7 +141,7 @@ body {
   font-variant: small-caps;
   color: var(--vermillion);
   letter-spacing: 0.03em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.3em;
   text-shadow: 0 1px 0 rgba(255,245,210,0.4);
 }
 .md-typeset h2 {
@@ -151,15 +151,35 @@ body {
   letter-spacing: 0.02em;
   color: var(--gold);
   border-bottom: 2px solid var(--rule-gold);
-  padding-bottom: 0.2em;
-  margin-top: 1.6em;
+  padding-bottom: 0.15em;
+  margin-top: 0.7em;
+  margin-bottom: 0.4em;
 }
 .md-typeset h3,
 .md-typeset h4 {
   font-family: var(--font-heading);
   font-weight: 600;
   color: var(--ink-faded);
+  margin-top: 0.7em;
+  margin-bottom: 0.25em;
 }
+
+/* ── Tighter vertical rhythm ──────────────────────────────────── */
+.md-typeset p { margin: 0.5em 0; }
+.md-typeset ul,
+.md-typeset ol {
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+}
+.md-typeset li {
+  margin-bottom: 0.25em;
+}
+.md-typeset li > ul,
+.md-typeset li > ol {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+.md-typeset li > p { margin: 0.2em 0; }
 
 /* Decorative rule under the first H1 */
 .md-typeset h1::after {
