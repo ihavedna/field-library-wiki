@@ -204,16 +204,21 @@ body {
 }
 
 /* ── Tags (chips at page top + on the Tags index) ─────────────── */
+.md-typeset .md-tags {
+  margin-top: 1.4em;
+  padding-top: 0.8em;
+  border-top: 1px solid var(--rule-gold);
+}
 .md-typeset .md-tag {
   background: rgba(180,130,40,0.14);
   border: 1px solid var(--rule-gold);
   color: var(--ink-faded);
   border-radius: 999px;
   font-family: var(--font-heading);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-variant: small-caps;
   letter-spacing: 0.04em;
-  padding: 0.1em 0.7em;
+  padding: 0.1em 0.65em;
 }
 .md-typeset a.md-tag:hover,
 .md-typeset a.md-tag:focus {
