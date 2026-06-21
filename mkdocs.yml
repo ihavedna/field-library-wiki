@@ -7,6 +7,8 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  # Self-contained: use the bundled manuscript fonts in wizard.css, no Google Fonts.
+  font: false
   features:
     - navigation.instant
     - navigation.top
@@ -17,19 +19,14 @@ theme:
     - content.action.edit
     - content.code.copy
     - toc.follow
+  # Single warm "parchment" scheme — the wizard.css theme paints the rest.
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+    scheme: default
+    primary: brown
+    accent: red
+
+extra_css:
+  - stylesheets/wizard.css
 
 markdown_extensions:
   - admonition
