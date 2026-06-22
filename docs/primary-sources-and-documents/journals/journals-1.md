@@ -7,7 +7,7 @@ tags:
   - Hallel B’Xalvoth
   - November 724
 ---
-# Journal, Ciphered Reports & Map by Nysoris
+# Nysoris's Journal & Deciphered Reports - October 724
 
 <div class="embed">
   <iframe src="https://docs.google.com/document/d/1WUKMHy-rjpx1s8oGrmy1Nqdq9rzW2Pw4qAeytiBxxto/preview"
