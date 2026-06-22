@@ -33,6 +33,13 @@ _NEW_PAGE_TEMPLATE = (
 )
 _REPO_NEW = "https://github.com/ihavedna/citadel-wiki/new/main/docs"
 
+# Landing pages that should NOT show the "+ New page" button (grouping sections
+# where entries live in sub-folders, not directly here).
+_NO_NEW_PAGE = {
+    "delve-reports/index.md",
+    "reports-on-vigil/index.md",
+}
+
 
 def _new_page_button(page):
     folder = os.path.dirname(page.file.src_uri)
@@ -176,7 +183,7 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
         body = "\n".join(_render(_NAV.items, "", 0)) + "\n"
         markdown = markdown.replace(SITE_MARKER, body)
     if SUB_MARKER in markdown:
-        button = _new_page_button(page)
+        button = "" if (page.file and page.file.src_uri in _NO_NEW_PAGE) else _new_page_button(page)
         section = _section_for(_NAV.items, page)
         if section is not None:
             base = os.path.dirname(page.file.src_uri)
