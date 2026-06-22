@@ -99,6 +99,11 @@ body {
 .md-content { position: relative; }
 
 /* ── Header — leather bar, gilded title ───────────────────────── */
+/* Hide the GitHub repo link (we keep repo_url only to power the per-page
+   edit pencil, not to show the repo source in the header/drawer). */
+.md-header__source,
+.md-nav__source { display: none; }
+
 .md-header {
   background: var(--leather);
   color: var(--gold-light);

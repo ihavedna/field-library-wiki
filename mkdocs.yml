@@ -1,8 +1,16 @@
 site_name: The Kallarai Library
 site_description: The Kallarai Library
-# site_url is internal plumbing (required by navigation.instant); it is not
-# shown to visitors. The repo link / edit URLs have been removed.
+# site_url is internal plumbing (required by navigation.instant); not shown.
 site_url: https://ihavedna.github.io/citadel-wiki/
+# repo_url + edit_uri power the per-page "edit this markdown" pencil. The
+# header repo link it would normally add is hidden via wizard.css.
+repo_url: https://github.com/ihavedna/citadel-wiki
+edit_uri: edit/main/docs/
+
+# Home (index.md) is reached via the header logo, so it's kept out of the
+# left nav; this stops the strict build warning about it.
+not_in_nav: |
+  index.md
 
 theme:
   name: material
@@ -19,6 +27,7 @@ theme:
     - navigation.indexes
     - search.suggest
     - search.highlight
+    - content.action.edit
     - content.code.copy
     - toc.follow
   # Single warm "parchment" scheme — the wizard.css theme paints the rest.
@@ -58,7 +67,6 @@ hooks:
   - hooks/recent_changes.py
 
 nav:
-  - "The Kallarai Library": index.md
   - "About the Library": about-the-library.md
   - "Delve Reports":
       - delve-reports/index.md
