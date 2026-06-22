@@ -74,10 +74,46 @@ def _index_of(section):
     )
 
 
+def _descendant_pages(section):
+    out = []
+    for c in section.children:
+        if getattr(c, "is_page", False) and c.file:
+            out.append(c)
+        elif getattr(c, "is_section", False):
+            out += _descendant_pages(c)
+    return out
+
+
+def _attach_indexes(items, config, files):
+    """awesome-pages drops a section's index.md from its children, which breaks
+    navigation.indexes. Re-insert it as the first child so section landings are
+    linked again (and our title-sync can read the H1)."""
+    from mkdocs.structure.pages import Page
+    for it in items:
+        if not getattr(it, "is_section", False):
+            continue
+        _attach_indexes(it.children, config, files)
+        if _index_of(it) is not None:
+            continue
+        pages = _descendant_pages(it)
+        dirs = [os.path.dirname(p.file.src_uri) for p in pages if p.file]
+        if not dirs:
+            continue
+        common = os.path.commonpath(dirs)
+        idx_uri = (common + "/index.md") if common else "index.md"
+        f = files.get_file_from_path(idx_uri)
+        if f is None:
+            continue
+        if getattr(f, "page", None) is None:
+            Page(None, f, config)  # sets f.page
+        it.children.insert(0, f.page)
+
+
 def on_nav(nav, config, files):
     global _NAV
     _NAV = nav
     _h1_cache.clear()
+    _attach_indexes(nav.items, config, files)
     _sync_titles(nav.items)
     return nav
 
