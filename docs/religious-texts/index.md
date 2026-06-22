@@ -5,6 +5,4 @@ tags:
 
 # Religious Texts
 
-## Contents
-
-- [Prophecies](prophecies.md)
+<!-- subtree -->
