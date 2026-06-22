@@ -4,7 +4,3 @@ Browse the library by tag. Each tag below lists the pages that carry it, and tag
 
 <!-- material/tags -->
 
-<div class="embed">
-  <iframe src="https://docs.google.com/document/d/1aiY9f2HM-02mXnasioowZZki9z0Ce4GV1IvVnlJlIHg/preview"
-          loading="lazy" title="Citadel Field Library Transcriptions"></iframe>
-</div>
