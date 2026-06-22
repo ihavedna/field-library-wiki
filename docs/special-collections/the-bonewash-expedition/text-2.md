@@ -1,7 +1,7 @@
 ---
 tags:
   - Found Text
-  - Ademeni
+  - Ademeni Nox
   - Maelstrom Spire Sanctum
   - Bonewash Expedition
   - Special Collections
