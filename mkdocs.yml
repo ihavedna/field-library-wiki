@@ -62,9 +62,12 @@ plugins:
   # Tags listing is placed by the <!-- material/tags --> marker in tags-labels.md
   - tags
 
-# Build-time hook: fills the <!-- recent-changes --> marker from git history.
+# Build-time hooks: fill marker comments with generated content.
+#   <!-- recent-changes --> → table from git history
+#   <!-- site-tree -->      → nested tree of the whole nav
 hooks:
   - hooks/recent_changes.py
+  - hooks/site_tree.py
 
 nav:
   - "About the Library": about-the-library.md
