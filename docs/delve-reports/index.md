@@ -57,3 +57,9 @@ tags:
         - [Delve Report #3](725/november-725/delve-report-3.md)
         - [Delve Report #4](725/november-725/delve-report-4.md)
         - [Delve Report #5](725/november-725/delve-report-5.md)
+- **724**
+    - [Delve Report #1](724/delve-report-1.md)
+    - [Delve Report #2](724/delve-report-2.md)
+    - [Delve Report #3](724/delve-report-3.md)
+    - [Delve Report #4](724/delve-report-4.md)
+    - [Delve Report #5](724/delve-report-5.md)
