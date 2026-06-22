@@ -2,11 +2,11 @@
 tags:
   - Untagged
 ---
-
 # Templates
 
-## Contents
+<div class="embed">
+  <iframe src="https://docs.google.com/document/d/1hTO-cKbgPfelJV3fcMJzerWrja8i6WL5PLjw-QXDMfo/preview"
+          loading="lazy" title="Templates"></iframe>
+</div>
 
-- [Template #1](template-1.md)
-- [Template #2](template-2.md)
-- [Template #3](template-3.md)
+[Open in Google Docs ↗](https://docs.google.com/document/d/1hTO-cKbgPfelJV3fcMJzerWrja8i6WL5PLjw-QXDMfo/preview){target=_blank}

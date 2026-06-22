@@ -310,10 +310,7 @@ nav:
       - "Artifact #3": artifacts/artifact-3.md
       - "Artifact #4": artifacts/artifact-4.md
       - "Artifact #5": artifacts/artifact-5.md
-  - "Templates":
-      - templates-section/index.md
-      - "Template #1": templates-section/template-1.md
-      - "Template #2": templates-section/template-2.md
-      - "Template #3": templates-section/template-3.md
+  - "Templates": templates-section/index.md
   - "Tags & Labels": tags-labels.md
   - "Recent Changes": recent-changes.md
+  - Edit navigation: https://github.com/ihavedna/citadel-wiki/edit/main/mkdocs.yml

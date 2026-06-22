@@ -359,6 +359,21 @@ body {
 }
 .md-sidebar .md-nav__item--active > .md-nav__link { font-weight: 600; }
 
+/* Sidebar "Edit navigation" link → GitHub mkdocs.yml (the IA source) */
+.md-sidebar .md-nav__link[href*="/edit/main/mkdocs.yml"] {
+  margin-top: 0.7em;
+  padding-top: 0.55em;
+  border-top: 1px solid var(--rule-gold);
+  color: var(--gold-light) !important;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+.md-sidebar .md-nav__link[href*="/edit/main/mkdocs.yml"]::before {
+  content: "✎";
+  margin-right: 0.4em;
+  font-style: normal;
+}
+
 /* Mobile drawer only: needs the wood background so the light text reads
    (the docked desktop sidebars stay fully transparent). */
 @media screen and (max-width: 76.1875em) {
