@@ -1,7 +1,7 @@
 ---
 tags:
   - Found Text
-  - Ademeni
+  - Ademeni Nox
   - Zephirax
   - Umbra
   - Maelstrom Spire Sanctum
