@@ -351,6 +351,20 @@ body {
   border-color: var(--gold-bright);
 }
 
+/* Tags & Labels index only: larger pills, smaller + tighter page lists */
+.md-typeset h2[id^="tag:"] .md-tag {
+  font-size: 0.95rem;
+  padding: 0.14em 0.85em;
+}
+.md-typeset h2[id^="tag:"] + ul {
+  font-size: 0.78rem;
+  margin-top: 0.2em;
+}
+.md-typeset h2[id^="tag:"] + ul li {
+  margin: 0;
+  line-height: 1.25;
+}
+
 /* ── Links ────────────────────────────────────────────────────── */
 .md-typeset a {
   color: var(--azurite);
