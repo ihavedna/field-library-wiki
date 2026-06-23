@@ -188,8 +188,10 @@ body {
 .md-path__link { color: var(--ink-dim); }
 .md-path__link:hover,
 .md-path__link:focus { color: var(--azurite); }
-/* Pull the title up close beneath the breadcrumb when one is present. */
-.md-content:has(.md-path) .md-content__inner { padding-top: 0.2rem; }
+/* Pull the title up close beneath the breadcrumb when one is present (also
+   drop the article's top spacer pseudo-element). */
+.md-content:has(.md-path) .md-content__inner { padding-top: 0; }
+.md-content:has(.md-path) .md-content__inner::before { height: 0; }
 
 .md-typeset h2 {
   font-family: var(--font-heading);
