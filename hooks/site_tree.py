@@ -92,9 +92,10 @@ def _section_dir(section):
 
 
 def _new_page_button(page, section=None):
-    # If this landing has sub-sections, first ask which one to add the page to
-    # via a native <details> chooser; each option creates the page in that
-    # sub-section's folder. Otherwise, link straight to this folder.
+    # If this landing has sub-sections, the button opens a popover letting the
+    # author add the page directly here, or into one of the sub-sections. With
+    # no sub-sections, it links straight to this folder.
+    this_folder = os.path.dirname(page.file.src_uri)
     subs = []
     if section is not None:
         for child in section.children:
@@ -103,24 +104,25 @@ def _new_page_button(page, section=None):
                 if folder is not None:
                     subs.append((child.title, folder))
     if subs:
+        options = [("This page", this_folder)] + subs
         items = "".join(
             f'<a class="new-entry-menu__item" href="{_new_page_url(folder)}" '
             f'target="_blank" rel="noopener">{title}</a>'
-            for title, folder in subs
+            for title, folder in options
         )
         return (
             '<div class="new-entry">'
             '<button type="button" class="new-entry-btn" popovertarget="new-page-menu" '
-            'title="Choose a subsection to add a new page to">'
-            '➕ New page in a subsection…</button>'
+            'title="Add a new page to this section or one of its subsections">'
+            '➕ Add new page</button>'
             f'<div id="new-page-menu" popover class="new-entry-menu">{items}</div>'
             "</div>\n\n"
         )
-    url = _new_page_url(os.path.dirname(page.file.src_uri))
+    url = _new_page_url(this_folder)
     return (
         f'<a class="new-entry-btn" href="{url}" target="_blank" rel="noopener" '
-        f'title="Create a new page in this section, pre-filled with the embed template">'
-        f"➕ New page in this section</a>\n\n"
+        f'title="Add a new page to this section, pre-filled with the embed template">'
+        f"➕ Add new page</a>\n\n"
     )
 
 
