@@ -1,6 +1,6 @@
 ---
 tags:
-  - Untagged
+
 ---
 
 # Reports on Vigil
