@@ -317,62 +317,71 @@ body {
   line-height: 1.5;
   text-decoration: none;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .md-typeset .new-entry-btn:hover,
 .md-typeset .new-entry-btn:focus {
   background: var(--parchment-dark);
   color: var(--wood-dark);
 }
+.md-typeset .new-entry { margin: 0; }
 
-/* Subsection chooser: a <details> whose <summary> is the button. Reset the
-   admonition box styling Material applies to every <details>, and hide the
-   default disclosure/admonition markers. */
-.md-typeset details.new-entry {
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  font-size: inherit;
-}
-.md-typeset details.new-entry > summary.new-entry-btn {
-  list-style: none;
-  padding: 0.14em 0.75em;
-}
-.md-typeset details.new-entry > summary.new-entry-btn::-webkit-details-marker { display: none; }
-.md-typeset details.new-entry > summary::before,
-.md-typeset details.new-entry > summary::after { content: none; display: none; }
+/* Subsection chooser: a native popover (<div popover>) toggled by the button.
+   Floats above the page with built-in light-dismiss; anchored under the button
+   where CSS anchor positioning is supported (else the UA centres it). */
 .md-typeset .new-entry-menu {
+  margin: 0;
+  padding: 0.35em 0.4em;
+  background: var(--vellum);
+  border: 1px solid var(--rule-gold);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(28, 10, 0, 0.32);
+}
+.md-typeset .new-entry-menu:popover-open {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.15em;
-  margin: 0.55em 0 0 0.3em;
-  padding-left: 0.85em;
-  border-left: 2px solid var(--rule-gold);
+  align-items: stretch;
+  gap: 0.05em;
+  min-width: 11em;
+}
+@supports (anchor-name: --a) {
+  .md-typeset .new-entry-btn { anchor-name: --new-page-btn; }
+  .md-typeset .new-entry-menu {
+    position-anchor: --new-page-btn;
+    inset: auto;
+    top: anchor(bottom);
+    left: anchor(left);
+    margin-top: 0.4em;
+  }
 }
 .md-typeset a.new-entry-menu__item {
+  display: block;
   color: var(--azurite);
   font-family: var(--font-heading);
   font-variant: small-caps;
   letter-spacing: 0.02em;
   font-size: 0.82rem;
   text-decoration: none;
+  padding: 0.18em 0.5em;
+  border-radius: 5px;
+  white-space: nowrap;
 }
 .md-typeset a.new-entry-menu__item::before { content: "➕ "; opacity: 0.65; }
-.md-typeset a.new-entry-menu__item:hover {
-  text-decoration: underline;
-  color: var(--azurite);
+.md-typeset a.new-entry-menu__item:hover,
+.md-typeset a.new-entry-menu__item:focus {
+  background: var(--parchment-dark);
+  color: var(--wood-dark);
+  text-decoration: none;
 }
 
 /* On landing pages, move the title's divider rule to BELOW the button/chooser:
    drop the H1 underline and draw the rule under the button paragraph (plain
-   button) or under the <details> (subsection chooser). */
-.md-typeset h1:has(+ p a.new-entry-btn)::after,
-.md-typeset h1:has(+ details.new-entry)::after { content: none; }
-.md-typeset h1:has(+ p a.new-entry-btn) + p,
-.md-typeset h1:has(+ details.new-entry) + details.new-entry {
+   button) or under the chooser wrapper (subsection popover). */
+.md-typeset h1:has(+ p .new-entry-btn)::after,
+.md-typeset h1:has(+ .new-entry)::after { content: none; }
+.md-typeset h1:has(+ p .new-entry-btn) + p,
+.md-typeset h1:has(+ .new-entry) + .new-entry {
   margin-top: 0.3em;
   padding-bottom: 0.6em;
   margin-bottom: 0.6em;

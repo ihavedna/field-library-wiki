@@ -109,11 +109,12 @@ def _new_page_button(page, section=None):
             for title, folder in subs
         )
         return (
-            '<details class="new-entry">'
-            '<summary class="new-entry-btn" title="Choose a subsection to add a '
-            'new page to">➕ New page in a subsection…</summary>'
-            f'<span class="new-entry-menu">{items}</span>'
-            "</details>\n\n"
+            '<div class="new-entry">'
+            '<button type="button" class="new-entry-btn" popovertarget="new-page-menu" '
+            'title="Choose a subsection to add a new page to">'
+            '➕ New page in a subsection…</button>'
+            f'<div id="new-page-menu" popover class="new-entry-menu">{items}</div>'
+            "</div>\n\n"
         )
     url = _new_page_url(os.path.dirname(page.file.src_uri))
     return (
