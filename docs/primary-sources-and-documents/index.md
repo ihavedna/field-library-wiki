@@ -1,6 +1,6 @@
 ---
 tags:
-  - Untagged
+
 ---
 
 # Primary Sources & Documents
