@@ -44,6 +44,7 @@ extra_javascript:
   - javascripts/drive-search.js
   - javascripts/header-links.js
   - javascripts/recent-changes.js
+  - javascripts/expand-nav.js
 
 markdown_extensions:
   - admonition
