@@ -216,25 +216,29 @@ def _sync_titles(items):
 
 
 def _render(items, base, depth):
-    """Nested markdown list of nav items; links made relative to `base` dir."""
+    """Nested markdown list of nav items; links made relative to `base` dir.
+    Top-level (L1) entries are bolded to give the child-page display a clear
+    first-level hierarchy."""
     out = []
     pad = "    " * depth
+    strong = "**" if depth == 0 else ""
     for item in items:
         if getattr(item, "is_section", False):
             idx = _index_of(item)
             if idx:
                 rel = os.path.relpath(idx.file.src_uri, base) if base else idx.file.src_uri
-                out.append(f"{pad}- [{item.title}]({rel})")
+                out.append(f"{pad}- {strong}[{item.title}]({rel}){strong}")
                 kids = [c for c in item.children if c is not idx]
             else:
+                # Sections without a landing page are already bold.
                 out.append(f"{pad}- **{item.title}**")
                 kids = item.children
             out += _render(kids, base, depth + 1)
         elif getattr(item, "is_page", False) and item.file:
             rel = os.path.relpath(item.file.src_uri, base) if base else item.file.src_uri
-            out.append(f"{pad}- [{item.title}]({rel})")
+            out.append(f"{pad}- {strong}[{item.title}]({rel}){strong}")
         elif getattr(item, "is_link", False):
-            out.append(f"{pad}- [{item.title}]({item.url})")
+            out.append(f"{pad}- {strong}[{item.title}]({item.url}){strong}")
     return out
 
 
