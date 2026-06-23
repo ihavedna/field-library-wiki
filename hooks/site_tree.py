@@ -104,7 +104,8 @@ def _new_page_button(page, section=None):
                 if folder is not None:
                     subs.append((child.title, folder))
     if subs:
-        options = [("This page", this_folder)] + subs
+        options = ([("add to this section", this_folder)]
+                   + [(f"add to {title}", folder) for title, folder in subs])
         items = "".join(
             f'<a class="new-entry-menu__item" href="{_new_page_url(folder)}" '
             f'target="_blank" rel="noopener">{title}</a>'
