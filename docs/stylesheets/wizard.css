@@ -110,7 +110,7 @@ body {
 .md-nav__source { display: none; }
 
 /* "Library Photo Album/Scans" link injected into the header (top bar) */
-.md-header__photolink {
+.md-header__extlink {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -125,15 +125,15 @@ body {
   border: 1px solid transparent;
   border-radius: 999px;
 }
-.md-header__photolink:hover,
-.md-header__photolink:focus {
+.md-header__extlink:hover,
+.md-header__extlink:focus {
   color: #fff;
   border-color: var(--rule-gold);
   background: rgba(232, 204, 96, 0.12);
 }
-.md-header__photolink svg { fill: currentColor; flex: none; }
+.md-header__extlink svg { fill: currentColor; flex: none; }
 @media screen and (max-width: 60em) {
-  .md-header__photolink span { display: none; }  /* icon only on small screens */
+  .md-header__extlink span { display: none; }  /* icon only on small screens */
 }
 
 .md-header {
