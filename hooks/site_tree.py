@@ -185,6 +185,10 @@ def _attach_indexes(items, config, files):
             continue
         if getattr(f, "page", None) is None:
             Page(None, f, config)  # sets f.page
+        # Parent the index page to the section's own parent (not the section
+        # itself) so page.ancestors — and thus the breadcrumb — resolves to the
+        # path *above* this section, matching native navigation.indexes.
+        f.page.parent = it.parent
         it.children.insert(0, f.page)
 
 
