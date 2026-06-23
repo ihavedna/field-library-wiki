@@ -1,14 +1,20 @@
 ---
 tags:
-  - Untagged
+  - Kahsithiel
+  - Vampire
+  - Vigil/Kallarai
+  - Shaviv-Janaki
+  - Umbra
+  - Seraphim
+  - Kalbeslafim
   - Needs Transcription
-  - No Date/Era Added
+  - September 725
 ---
-# Ceremonial Magic #1
+# Vampiric Rite to Kahsithiel, upon the Aspect Nodes - September 725
 
 <div class="embed">
-  <iframe src="https://docs.google.com/document/d/1THX9u9UFJ09Yub4h_KHnfrD656B0WKTilUscFMJeUzs/preview"
-          loading="lazy" title="Ceremonial Magic #1"></iframe>
+  <iframe src="https://docs.google.com/document/d/1VH52DqVm_IpF9nPagKdj0jt07wwps2RrU-tD8dkT5gk/preview"
+          loading="lazy" title="Vampiric Rite to Kahsithiel, upon the Aspect Nodes - September 725"></iframe>
 </div>
 
-[Open in Google Docs ↗](https://docs.google.com/document/d/1THX9u9UFJ09Yub4h_KHnfrD656B0WKTilUscFMJeUzs/edit){target=_blank}
+[Open in Google Docs ↗](https://docs.google.com/document/d/1VH52DqVm_IpF9nPagKdj0jt07wwps2RrU-tD8dkT5gk/edit){target=_blank}
