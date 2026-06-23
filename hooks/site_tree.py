@@ -22,14 +22,16 @@ _h1_cache = {}
 
 # Pre-filled content for the "+ New page" button (the standard embed stub).
 _NEW_PAGE_TEMPLATE = (
-    "---\ntags:\n  - Untagged\n---\n# New Entry\n\n"
+    "---\ntags:\n  - Untagged\n  - Needs Transcription\n  - No Date/Era Added\n---\n"
+    "# [TEMPLATE - Name of Text/Source/Item goes here!]\n\n"
     '<div class="embed">\n'
     '  <iframe src="https://docs.google.com/document/d/'
-    '1aiY9f2HM-02mXnasioowZZki9z0Ce4GV1IvVnlJlIHg/preview"\n'
-    '          loading="lazy" title="Citadel Field Library Transcriptions"></iframe>\n'
+    '1THX9u9UFJ09Yub4h_KHnfrD656B0WKTilUscFMJeUzs/preview"\n'
+    '          loading="lazy" title="[TEMPLATE - Name of Text/Source/Item goes here!]">'
+    "</iframe>\n"
     "</div>\n\n"
     "[Open in Google Docs ↗](https://docs.google.com/document/d/"
-    "1aiY9f2HM-02mXnasioowZZki9z0Ce4GV1IvVnlJlIHg/preview){target=_blank}\n"
+    "1THX9u9UFJ09Yub4h_KHnfrD656B0WKTilUscFMJeUzs/edit){target=_blank}\n"
 )
 _REPO_NEW = "https://github.com/ihavedna/citadel-wiki/new/main/docs"
 
