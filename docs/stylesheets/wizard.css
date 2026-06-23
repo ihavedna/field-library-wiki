@@ -4,6 +4,11 @@
    Typography: EB Garamond (web font, loaded via the Material font config).
    ══════════════════════════════════════════════════════════════ */
 
+/* Material only loads EB Garamond 300/400/700, so an in-between weight would
+   snap to full bold. Pull in 500 (medium) for the slightly-bolder search
+   titles. (@import must precede all style rules.) */
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap");
+
 /* ── Design tokens ────────────────────────────────────────────── */
 :root {
   /* Parchment & ink */
@@ -259,6 +264,22 @@ body {
 /* When the Drive toggle is on, hide the local wiki results — the search
    "overtakes" to Drive (Enter opens Drive search in a new tab). */
 .md-search.drive-mode .md-search-result { display: none; }
+
+/* ── Search dropdown only: slightly bolder titles, smaller tag pills ── */
+/* The result title is a plain <h1> inside the article (no __title class in
+   this Material version). Match Material's own `.md-search-result .md-typeset
+   h1` selector (specificity 0,2,1) so this wins on source order; 500 (medium)
+   reads as slightly bolder than the default 400. */
+.md-search-result .md-typeset h1 {
+  font-weight: 500;
+}
+/* The result article carries .md-typeset and wraps tags in .md-tags, so use a
+   higher-specificity selector to beat `.md-typeset .md-tags .md-tag` (0.7rem)
+   regardless of source order. */
+.md-search-result .md-typeset .md-tags .md-tag {
+  font-size: 0.6rem;
+  padding: 0.08em 0.55em;
+}
 
 /* ── "New page in this section" button (top of landing pages) ─── */
 .md-typeset a.new-entry-btn {
