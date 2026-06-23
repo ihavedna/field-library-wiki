@@ -74,10 +74,48 @@ def _exclude_gdoc(markdown):
     return _GDOC_LINK.sub(repl, markdown)
 
 
-def _new_page_button(page):
-    folder = os.path.dirname(page.file.src_uri)
-    url = (f"{_REPO_NEW}/{folder}/?filename=new-entry.md"
-           f"&value={quote(_NEW_PAGE_TEMPLATE, safe='')}")
+def _new_page_url(folder):
+    folder = folder.strip("/")
+    return (f"{_REPO_NEW}/{folder}/?filename=new-entry.md"
+            f"&value={quote(_NEW_PAGE_TEMPLATE, safe='')}")
+
+
+def _section_dir(section):
+    """The docs-relative folder a section's pages live in (its index's folder,
+    or the common folder of its descendant pages for index-less groups)."""
+    idx = _index_of(section)
+    if idx and idx.file:
+        return os.path.dirname(idx.file.src_uri)
+    dirs = [os.path.dirname(p.file.src_uri)
+            for p in _descendant_pages(section) if p.file]
+    return os.path.commonpath(dirs) if dirs else None
+
+
+def _new_page_button(page, section=None):
+    # If this landing has sub-sections, first ask which one to add the page to
+    # via a native <details> chooser; each option creates the page in that
+    # sub-section's folder. Otherwise, link straight to this folder.
+    subs = []
+    if section is not None:
+        for child in section.children:
+            if getattr(child, "is_section", False):
+                folder = _section_dir(child)
+                if folder is not None:
+                    subs.append((child.title, folder))
+    if subs:
+        items = "".join(
+            f'<a class="new-entry-menu__item" href="{_new_page_url(folder)}" '
+            f'target="_blank" rel="noopener">{title}</a>'
+            for title, folder in subs
+        )
+        return (
+            '<details class="new-entry">'
+            '<summary class="new-entry-btn" title="Choose a subsection to add a '
+            'new page to">➕ New page in a subsection…</summary>'
+            f'<span class="new-entry-menu">{items}</span>'
+            "</details>\n\n"
+        )
+    url = _new_page_url(os.path.dirname(page.file.src_uri))
     return (
         f'<a class="new-entry-btn" href="{url}" target="_blank" rel="noopener" '
         f'title="Create a new page in this section, pre-filled with the embed template">'
@@ -225,8 +263,11 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
         body = "\n".join(_render(_NAV.items, "", 0)) + "\n"
         markdown = markdown.replace(SITE_MARKER, body)
     if SUB_MARKER in markdown:
-        button = "" if (page.file and page.file.src_uri in _NO_NEW_PAGE) else _new_page_button(page)
         section = _section_for(_NAV.items, page)
+        if page.file and page.file.src_uri in _NO_NEW_PAGE:
+            button = ""
+        else:
+            button = _new_page_button(page, section)
         if section is not None:
             base = os.path.dirname(page.file.src_uri)
             idx = _index_of(section)

@@ -300,8 +300,8 @@ body {
   padding: 0.08em 0.55em;
 }
 
-/* ── "New page in this section" button (top of landing pages) ─── */
-.md-typeset a.new-entry-btn {
+/* ── "New page" button + subsection chooser (top of landing pages) ─── */
+.md-typeset .new-entry-btn {
   display: inline-block;
   margin: 0;
   padding: 0.14em 0.75em;
@@ -314,17 +314,65 @@ body {
   font-weight: 700;
   letter-spacing: 0.03em;
   font-size: 0.74rem;
+  line-height: 1.5;
   text-decoration: none;
+  cursor: pointer;
 }
-.md-typeset a.new-entry-btn:hover,
-.md-typeset a.new-entry-btn:focus {
+.md-typeset .new-entry-btn:hover,
+.md-typeset .new-entry-btn:focus {
   background: var(--parchment-dark);
   color: var(--wood-dark);
 }
-/* On landing pages, move the title's divider rule to BELOW the button:
-   drop the H1 underline and draw the rule under the button's paragraph. */
-.md-typeset h1:has(+ p > a.new-entry-btn)::after { content: none; }
-.md-typeset h1:has(+ p > a.new-entry-btn) + p {
+
+/* Subsection chooser: a <details> whose <summary> is the button. Reset the
+   admonition box styling Material applies to every <details>, and hide the
+   default disclosure/admonition markers. */
+.md-typeset details.new-entry {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-size: inherit;
+}
+.md-typeset details.new-entry > summary.new-entry-btn {
+  list-style: none;
+  padding: 0.14em 0.75em;
+}
+.md-typeset details.new-entry > summary.new-entry-btn::-webkit-details-marker { display: none; }
+.md-typeset details.new-entry > summary::before,
+.md-typeset details.new-entry > summary::after { content: none; display: none; }
+.md-typeset .new-entry-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15em;
+  margin: 0.55em 0 0 0.3em;
+  padding-left: 0.85em;
+  border-left: 2px solid var(--rule-gold);
+}
+.md-typeset a.new-entry-menu__item {
+  color: var(--azurite);
+  font-family: var(--font-heading);
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+.md-typeset a.new-entry-menu__item::before { content: "➕ "; opacity: 0.65; }
+.md-typeset a.new-entry-menu__item:hover {
+  text-decoration: underline;
+  color: var(--azurite);
+}
+
+/* On landing pages, move the title's divider rule to BELOW the button/chooser:
+   drop the H1 underline and draw the rule under the button paragraph (plain
+   button) or under the <details> (subsection chooser). */
+.md-typeset h1:has(+ p a.new-entry-btn)::after,
+.md-typeset h1:has(+ details.new-entry)::after { content: none; }
+.md-typeset h1:has(+ p a.new-entry-btn) + p,
+.md-typeset h1:has(+ details.new-entry) + details.new-entry {
   margin-top: 0.3em;
   padding-bottom: 0.6em;
   margin-bottom: 0.6em;
