@@ -1,5 +1,5 @@
 /*
- * Adds header (top-bar) links on every page: a "GDocs Drive" link and a
+ * Adds header (top-bar) links on every page: a "GDrive Docs" link and a
  * "Photo Album/Scans" link, in that order, just left of the search box.
  * Re-runs on each instant navigation via Material's document$.
  */
@@ -30,8 +30,8 @@
     var drive = makeLink(
       "md-header__drivelink",
       DRIVE_URL,
-      "GDocs Drive",
-      "GDocs Drive",
+      "GDrive Docs",
+      "GDrive Docs",
       // Google Drive triangle glyph
       "M7.71 3.5 1.15 15l3.43 5.5 6.56-11.5zm8.58 0H9.42l6.56 11.5h6.87zm-1.7 13H4.94L1.5 22h13.16l3.43-5.5z"
     );
