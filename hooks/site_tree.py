@@ -239,6 +239,45 @@ def _render(items, base, depth):
     return out
 
 
+def _render_headed(items, base, level):
+    """Child-page display for a section landing: sub-sections become real
+    Markdown headings (so they get ids, permalink ¶ anchors, and a table of
+    contents entry) at the given level; runs of leaf pages become bullet lists
+    beneath them. Top-level (level 2) leaf pages are bolded, matching the L1
+    treatment used on the home map."""
+    blocks = []
+    pending = []
+
+    def flush():
+        if pending:
+            blocks.append("\n".join(pending))
+            pending.clear()
+
+    strong = "**" if level == 2 else ""
+    for item in items:
+        if getattr(item, "is_section", False):
+            flush()
+            idx = _index_of(item)
+            if idx:
+                rel = os.path.relpath(idx.file.src_uri, base) if base else idx.file.src_uri
+                heading = f"[{item.title}]({rel})"
+                kids = [c for c in item.children if c is not idx]
+            else:
+                heading = item.title
+                kids = item.children
+            blocks.append(f'{"#" * min(level, 6)} {heading}')
+            sub = _render_headed(kids, base, level + 1)
+            if sub:
+                blocks.append(sub)
+        elif getattr(item, "is_page", False) and item.file:
+            rel = os.path.relpath(item.file.src_uri, base) if base else item.file.src_uri
+            pending.append(f"- {strong}[{item.title}]({rel}){strong}")
+        elif getattr(item, "is_link", False):
+            pending.append(f"- {strong}[{item.title}]({item.url}){strong}")
+    flush()
+    return "\n\n".join(b for b in blocks if b)
+
+
 def _section_for(items, page):
     """The section whose index page is `page`, searched recursively."""
     for item in items:
@@ -277,7 +316,7 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
             base = os.path.dirname(page.file.src_uri)
             idx = _index_of(section)
             kids = [c for c in section.children if c is not idx]
-            body = "\n".join(_render(kids, base, 0)) + "\n"
+            body = _render_headed(kids, base, 2) + "\n"
         else:
             body = "_No sub-pages._\n"
         markdown = markdown.replace(SUB_MARKER, button + body)
