@@ -168,17 +168,28 @@ body {
 .md-typeset h1 .headerlink { display: none; }
 
 /* ── Breadcrumbs (navigation.path) above the page title ───────── */
+/* The breadcrumb nav is a sibling sitting above the padded article, so give it
+   the article's horizontal padding to line up with the title, and pull the
+   title up close beneath it (only when a breadcrumb is present). */
 .md-path {
   font-family: var(--font-heading);
   font-variant: small-caps;
   letter-spacing: 0.03em;
   font-size: 0.72rem;
   color: var(--ink-dim);
-  margin: 0 0 0.5em;
+  /* Mirror the article's (responsive) horizontal margin + padding so the
+     breadcrumb text lines up exactly with the title below it. */
+  margin: 0 0.8rem;
+  padding: 1.1rem 1.8rem 0;
+}
+@media screen and (min-width: 76.25em) {
+  .md-path { margin-left: 1.2rem; }
 }
 .md-path__link { color: var(--ink-dim); }
 .md-path__link:hover,
 .md-path__link:focus { color: var(--azurite); }
+/* Pull the title up close beneath the breadcrumb when one is present. */
+.md-content:has(.md-path) .md-content__inner { padding-top: 0.2rem; }
 
 .md-typeset h2 {
   font-family: var(--font-heading);
