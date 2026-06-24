@@ -1,7 +1,6 @@
 ---
 tags:
   - World Wizard
-  - Incomplete
   - November 724
   - Deciphered Text
   - Zimoto
