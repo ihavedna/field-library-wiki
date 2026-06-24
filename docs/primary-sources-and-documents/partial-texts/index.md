@@ -1,8 +1,0 @@
----
-tags:
-  
----
-
-# Partial Texts
-
-<!-- subtree -->
